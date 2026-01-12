@@ -1,28 +1,24 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>나의 작은 다이어리</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>다이어리 달력</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <h1>🎀 다이어리 🎀</h1>
 
-  <main class="container">
-    <h1>📔 나의 다이어리</h1>
-    <p class="subtitle">오늘의 생각을 조용히 적어두는 곳</p>
+    <div class="calendar-container" id="calendar"></div>
 
-    <section class="write">
-      <textarea id="diaryInput" placeholder="오늘은 어떤 하루였어?"></textarea>
-      <button id="saveBtn">저장하기</button>
-    </section>
+    <!-- 글 작성 모달 -->
+    <div id="entry-modal" class="modal">
+        <textarea id="entry-text" placeholder="여기에 글을 작성하세요"></textarea>
+        <div class="modal-buttons">
+            <button id="save-entry">저장</button>
+            <button id="close-entry">닫기</button>
+        </div>
+    </div>
 
-    <section class="entries">
-      <h2>기록</h2>
-      <ul id="diaryList"></ul>
-    </section>
-  </main>
-
-  <script src="js/diary.js"></script>
+    <script src="js/calendar.js"></script>
 </body>
 </html>

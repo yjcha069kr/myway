@@ -1,74 +1,150 @@
-* {
-  box-sizing: border-box;
+/* === CSS 변수 (유지보수 용이) === */
+:root {
+    --primary-bg: #fff0f5;        /* 페이지 배경 */
+    --calendar-bg: #fff;          /* 달력 박스 */
+    --pink-light: #ffe4e1;        /* 날짜 기본 */
+    --pink-medium: #ffb6c1;       /* hover */
+    --pink-strong: #ff6f91;       /* 선택/강조 */
+    --pink-today: #ff99aa;        /* 오늘 강조 */
+    --modal-max-width: 500px;     /* 모달 최대폭 */
+    --font-color-dark: #333;
 }
 
+/* === 전체 페이지 === */
 body {
-  margin: 0;
-  font-family: 'Gowun Dodum', sans-serif;
-  background-color: #faf7f2;
-  color: #333;
-}
-
-.container {
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 40px 20px;
+    background-color: var(--primary-bg);
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 5px;
+    color: var(--pink-strong);
+    margin-bottom: 40px;
 }
 
-.subtitle {
-  text-align: center;
-  color: #777;
-  margin-bottom: 30px;
+/* === 달력 박스 === */
+.calendar-container {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 10px;
+    background: var(--calendar-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(255, 182, 193,0.5);
+    width: 90%;
+    max-width: 900px;
 }
 
-.write textarea {
-  width: 100%;
-  height: 120px;
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-  font-size: 15px;
-  resize: none;
+/* 요일 헤더 */
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: var(--pink-strong);
 }
 
-.write button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  background-color: #e8cfa9;
-  cursor: pointer;
-  font-size: 14px;
+/* 날짜 그리드 */
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
 }
 
-.write button:hover {
-  background-color: #e0c090;
+/* 날짜 셀 */
+.date-cell {
+    background: var(--pink-light);
+    width: 100%;          /* 칸 폭에 맞춤 */
+    padding: 25px 0;
+    font-size: 18px;
+    border-radius: 12px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
 }
 
-.entries {
-  margin-top: 40px;
+.date-cell:hover {
+    background: var(--pink-medium);
+    color: #fff;
 }
 
-.entries ul {
-  list-style: none;
-  padding: 0;
+.today {
+    background: var(--pink-today);
+    color: #fff;
 }
 
-.entries li {
-  background: white;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+.selected {
+    background: var(--pink-strong);
+    color: #fff;
 }
 
-.date {
-  font-size: 12px;
-  color: #999;
-  margin-bottom: 8px;
+/* === 모달 === */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--calendar-bg);
+    width: 90%;
+    max-width: var(--modal-max-width);
+    padding: 5%;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(255, 182, 193,0.5);
+    box-sizing: border-box;
+}
+
+.modal textarea {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 10px;
+    border: 1px solid var(--pink-medium);
+    resize: none;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* 저장 버튼 */
+#save-entry {
+    background: var(--pink-medium);
+    color: #fff;
+}
+
+#save-entry:hover {
+    background: var(--pink-today);
+    transform: translateY(-2px);
+}
+
+/* 닫기 버튼 */
+#close-entry {
+    background: var(--pink-light);
+    color: var(--font-color-dark);
+}
+
+#close-entry:hover {
+    background: #ffccd5;
+    transform: translateY(-2px);
 }
