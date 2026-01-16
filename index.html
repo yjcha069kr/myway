@@ -4,20 +4,49 @@
     <meta charset="UTF-8">
     <title>다이어리 달력</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
-    <h1>🎀 다이어리 🎀</h1>
+    <!-- header -->
+    <header id="header" class="container">
+        <nav class="navbar">
+            <div>
+                <a href="#home">Home</a>
+                <button type="button">
+                    <span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#work">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <div class="calendar-container" id="calendar"></div>
-
-    <!-- 글 작성 모달 -->
-    <div id="entry-modal" class="modal">
-        <textarea id="entry-text" placeholder="여기에 글을 작성하세요"></textarea>
-        <div class="modal-buttons">
-            <button id="save-entry">저장</button>
-            <button id="close-entry">닫기</button>
+    <!-- ==================== 섹션1: TODAY ==================== -->
+    <section class="section section1">
+        <div class="title">
+            <span>TODAY</span>
+            <h1>오늘의 한 줄 일기</h1>
         </div>
-    </div>
+        <div class="calendar-container" id="calendar"></div>
+        <div id="entry-modal" class="modal">
+            <textarea id="entry-text" placeholder="여기에 글을 작성하세요"></textarea>
+            <div class="modal-buttons">
+                <button id="save-entry">저장</button>
+                <button id="close-entry">닫기</button>
+            </div>
+        </div>
+    </section>
 
     <script src="js/calendar.js"></script>
 </body>
