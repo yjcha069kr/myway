@@ -57,6 +57,11 @@ function buildCalendar(year, month) {
       selectDate(cell, dateString);
     }
 
+    // 메모가 저장된 날짜면 숫자 색 변경
+    if (localStorage.getItem(`memo-${dateString}`)) {
+      cell.classList.add('memoed');
+    }
+
     // 날짜 클릭
     cell.addEventListener('click', () => {
       selectDate(cell, dateString);
@@ -86,11 +91,22 @@ function selectDate(cell, dateString) {
 saveMemoBtn.addEventListener('click', () => {
   if (!selectedDate) return;
 
-  localStorage.setItem(
-    `memo-${selectedDate}`,
-    memoText.value
-  );
+  // 메모가 비어있으면 저장 대신 삭제
+  if (memoText.value.trim() === '') {
+    localStorage.removeItem(`memo-${selectedDate}`);
+    document.querySelector('.date-cell.selected').classList.remove('memoed');
+    document.querySelector('.date-cell.selected').classList.remove('selected');
+    return;
+  }
+
+  localStorage.setItem(`memo-${selectedDate}`, memoText.value);
+
+  // 저장 후 선택한 날짜에 memoed 적용하고 선택 해제
+  const selectedCell = document.querySelector('.date-cell.selected');
+  selectedCell.classList.add('memoed');
+  selectedCell.classList.remove('selected');
 });
+
 
 // ===== 초기 실행 =====
 buildCalendar(currentYear, currentMonth);
