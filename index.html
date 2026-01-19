@@ -1,53 +1,80 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <title>다이어리 달력</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <title>My Homepage</title>
+    <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
+
 <body>
     <!-- header -->
-    <header id="header" class="container">
-        <nav class="navbar">
-            <div>
-                <a href="#home">Home</a>
-                <button type="button">
-                    <span></span>
-                </button>
-                <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#about">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#work">Portfolio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <header id="header">
+        <nav class="nav container">
+            <a href="/" class="logo">MySite</a>
+            <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/projects.html">Projects</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- ==================== 섹션1: TODAY ==================== -->
-    <section class="section section1">
-        <div class="title">
-            <span>TODAY</span>
-            <h1>오늘의 한 줄 일기</h1>
-        </div>
-        <div class="calendar-container" id="calendar"></div>
-        <div id="entry-modal" class="modal">
-            <textarea id="entry-text" placeholder="여기에 글을 작성하세요"></textarea>
-            <div class="modal-buttons">
-                <button id="save-entry">저장</button>
-                <button id="close-entry">닫기</button>
-            </div>
-        </div>
-    </section>
+    <!-- main -->
+    <main class="container">
+        <section class="intro section">
+            <p class="intro-small">hello,</p>
 
-    <script src="js/calendar.js"></script>
+            <h1 class="intro-title">
+                안녕하세요.<br>
+                저에 대한 공간입니다.
+            </h1>
+
+            <p class="intro-desc">
+                생각나는 것들을 천천히 기록하고,<br />
+                가끔은 아무 말이나 적어두는 곳.
+            </p>
+        </section>
+        <section class="about section">
+            <h2 class="section-title">About</h2>
+
+            <div class="about-content">
+                <p>
+                    저는 무언가를 만들고, 그 과정을 기록하는 걸 좋아해요.<br>
+                    완벽하지 않아도 일단 시작해보고, 나중에 천천히 고쳐가는 편입니다.<br>
+                    이 공간도 그런 마음으로 만들어졌어요.
+                </p>
+            </div>
+        </section>
+        <section class="cards section">
+            <h2 class="section-title">Things</h2>
+
+            <div class="card-grid">
+                <article class="card">
+                    <h3>LIKE</h3>
+                    <p>개인시간, 분홍</p>
+                </article>
+
+                <article class="card">
+                    <h3>HOBBY</h3>
+                    <p>게임, 가벼운 산책</p>
+                </article>
+
+                <article class="card">
+                    <h3>MY STYLE</h3>
+                    <p>차분, 현실적</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer id="footer">
+        <p>©CYJ 2026 MySite</p>
+    </footer>
+
+    <script src="/assets/js/common.js"></script>
 </body>
+
 </html>

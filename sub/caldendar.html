@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>다이어리 달력</title>
+    <link rel="stylesheet" href="/css/calendar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <section class="section section1">
+        <div class="title">
+            <span>TODAY</span>
+            <h1>오늘의 한 줄 일기</h1>
+        </div>
+        <div class="calendar-container" id="calendar"></div>
+        <div id="entry-modal" class="modal">
+            <textarea id="entry-text" placeholder="여기에 글을 작성하세요"></textarea>
+            <div class="modal-buttons">
+                <button id="save-entry">저장</button>
+                <button id="close-entry">닫기</button>
+            </div>
+        </div>
+    </section>
+
+    <script src="/js/calendar.js"></script>
+</body>
+</html>
