@@ -1,80 +1,96 @@
-const calendarContainer = document.getElementById('calendar');
-const modal = document.getElementById('entry-modal');
-const entryText = document.getElementById('entry-text');
-const saveBtn = document.getElementById('save-entry');
-const closeBtn = document.getElementById('close-entry');
-
-let current = new Date();
-let currentMonth = current.getMonth();
-let currentYear = current.getFullYear();
+// ===== 기본 날짜 정보 =====
+const today = new Date();
+let currentYear = today.getFullYear();
+let currentMonth = today.getMonth();
 let selectedDate = null;
-let diaryData = {}; // 날짜별 글 저장
 
+// ===== DOM =====
+const calendarEl = document.getElementById('calendar');
+const memoText = document.getElementById('memo-text');
+const selectedDateText = document.getElementById('selected-date');
+const saveMemoBtn = document.getElementById('save-memo');
+
+// ===== 달력 생성 =====
 function buildCalendar(year, month) {
-    calendarContainer.innerHTML = '';
+  calendarEl.innerHTML = '';
 
-    // 요일 헤더
-    const weekdaysDiv = document.createElement('div');
-    weekdaysDiv.className = 'weekdays';
-    const days = ['일','월','화','수','목','금','토'];
-    for(let d of days){
-        const dayDiv = document.createElement('div');
-        dayDiv.textContent = d;
-        weekdaysDiv.appendChild(dayDiv);
-    }
-    calendarContainer.appendChild(weekdaysDiv);
+  const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
-    // 날짜 그리드
-    const datesDiv = document.createElement('div');
-    datesDiv.className = 'dates';
+  // 요일 헤더
+  const weekdaysEl = document.createElement('div');
+  weekdaysEl.className = 'weekdays';
+  weekdays.forEach(day => {
+    const div = document.createElement('div');
+    div.textContent = day;
+    weekdaysEl.appendChild(div);
+  });
+  calendarEl.appendChild(weekdaysEl);
 
-    const firstDay = new Date(year, month, 1).getDay();
-    const lastDate = new Date(year, month+1, 0).getDate();
+  // 날짜 영역
+  const datesEl = document.createElement('div');
+  datesEl.className = 'dates';
 
-    // 빈 칸
-    for(let i=0;i<firstDay;i++){
-        const emptyDiv = document.createElement('div');
-        datesDiv.appendChild(emptyDiv);
-    }
+  const firstDay = new Date(year, month, 1).getDay();
+  const lastDate = new Date(year, month + 1, 0).getDate();
 
-    // 날짜 셀
-    for(let i=1;i<=lastDate;i++){
-        const dateDiv = document.createElement('div');
-        dateDiv.className = 'date-cell';
-        dateDiv.textContent = i;
-        const fullDate = `${year}-${month+1}-${i}`;
-        dateDiv.dataset.date = fullDate;
+  // 빈 칸
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement('div');
+    datesEl.appendChild(empty);
+  }
 
-        if(i===current.getDate() && month===current.getMonth() && year===current.getFullYear()){
-            dateDiv.classList.add('today');
-        }
+  // 날짜 생성
+  for (let date = 1; date <= lastDate; date++) {
+    const cell = document.createElement('div');
+    cell.className = 'date-cell';
+    cell.textContent = date;
 
-        dateDiv.addEventListener('click', () => {
-            selectedDate = fullDate;
+    const dateString = `${year}-${String(month + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
 
-            document.querySelectorAll('.selected').forEach(el=>el.classList.remove('selected'));
-            dateDiv.classList.add('selected');
-
-            entryText.value = diaryData[selectedDate] || '';
-            modal.style.display = 'block';
-        });
-
-        datesDiv.appendChild(dateDiv);
+    // 오늘 표시
+    if (
+      date === today.getDate() &&
+      month === today.getMonth() &&
+      year === today.getFullYear()
+    ) {
+      cell.classList.add('today');
+      selectDate(cell, dateString);
     }
 
-    calendarContainer.appendChild(datesDiv);
+    // 날짜 클릭
+    cell.addEventListener('click', () => {
+      selectDate(cell, dateString);
+    });
+
+    datesEl.appendChild(cell);
+  }
+
+  calendarEl.appendChild(datesEl);
 }
 
-// 모달 저장
-saveBtn.addEventListener('click', ()=>{
-    if(selectedDate) diaryData[selectedDate] = entryText.value;
-    modal.style.display = 'none';
+// ===== 날짜 선택 처리 =====
+function selectDate(cell, dateString) {
+  document.querySelectorAll('.date-cell').forEach(c =>
+    c.classList.remove('selected')
+  );
+  cell.classList.add('selected');
+
+  selectedDate = dateString;
+  selectedDateText.textContent = dateString;
+
+  memoText.value =
+    localStorage.getItem(`memo-${dateString}`) || '';
+}
+
+// ===== 메모 저장 =====
+saveMemoBtn.addEventListener('click', () => {
+  if (!selectedDate) return;
+
+  localStorage.setItem(
+    `memo-${selectedDate}`,
+    memoText.value
+  );
 });
 
-// 모달 닫기
-closeBtn.addEventListener('click', ()=>{
-    modal.style.display = 'none';
-});
-
-// 초기 달력 빌드
+// ===== 초기 실행 =====
 buildCalendar(currentYear, currentMonth);

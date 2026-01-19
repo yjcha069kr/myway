@@ -12,60 +12,82 @@
     <!-- header -->
     <header id="header">
         <nav class="nav container">
-            <a href="/" class="logo">MySite</a>
+            <a href="/index.html" class="logo"><i class="fa-solid fa-house"></i>HOME</i></a>
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/about.html">About</a></li>
+                <li><a href="/about.html"><i class="fa-solid fa-user"></i>About</a></li>
                 <li><a href="/projects.html">Projects</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- main -->
+    <div class="main-visual">
+        <img src="/assets/pexels-cecile-hournau-419900900-15113217.jpg" alt="메인">
+    </div>
     <main class="container">
         <section class="intro section">
-            <p class="intro-small">hello,</p>
-
             <h1 class="intro-title">
-                안녕하세요.<br>
-                저에 대한 공간입니다.
+                안녕하세요? 주인장이에요.
             </h1>
 
             <p class="intro-desc">
-                생각나는 것들을 천천히 기록하고,<br />
-                가끔은 아무 말이나 적어두는 곳.
+                내 맘대로 만든 페이지<br>
+                ++++
             </p>
         </section>
         <section class="about section">
-            <h2 class="section-title">About</h2>
+            <h2 class="section-title">INTRODUCE</h2>
 
-            <div class="about-content">
+            <div class="content">
                 <p>
-                    저는 무언가를 만들고, 그 과정을 기록하는 걸 좋아해요.<br>
-                    완벽하지 않아도 일단 시작해보고, 나중에 천천히 고쳐가는 편입니다.<br>
-                    이 공간도 그런 마음으로 만들어졌어요.
+                    핑크톤으로 만들고싶어서 제작 중...<br>
+                    언제 마무리 될지는 모르는 아주 개인적인 페이지!
                 </p>
             </div>
         </section>
         <section class="cards section">
-            <h2 class="section-title">Things</h2>
+            <h2 class="section-title">ABOUT ME</h2>
 
             <div class="card-grid">
-                <article class="card">
+                <div class="card">
                     <h3>LIKE</h3>
                     <p>개인시간, 분홍</p>
-                </article>
+                </div>
 
-                <article class="card">
+                <div class="card">
                     <h3>HOBBY</h3>
                     <p>게임, 가벼운 산책</p>
-                </article>
+                </div>
 
-                <article class="card">
+                <div class="card">
                     <h3>MY STYLE</h3>
                     <p>차분, 현실적</p>
-                </article>
+                </div>
             </div>
+        </section>
+        <section class="today section">
+            <h2 class="section-title">TODAY</h2>
+            <div class="calendar-layout">
+                <!-- 달력 -->
+                <div class="calendar-container" id="calendar"></div>
+
+                <!-- 메모장 -->
+                <div class="memo-container">
+                    <div class="memo-header">
+                        <span id="selected-date">날짜를 선택하세요</span>
+                    </div>
+
+                    <textarea id="memo-text" placeholder="오늘 하루를 기록해보세요."></textarea>
+
+                    <button id="save-memo">저장</button>
+                </div>
+            </div>
+        </section>
+        <section class="now section">
+            <h2 class="section-title">NOW</h2>
+            <p>
+                2026년 1월 19일 시작
+            </p>
         </section>
     </main>
 
@@ -75,6 +97,7 @@
     </footer>
 
     <script src="/assets/js/common.js"></script>
+    <script src="/js/calendar.js"></script>
 </body>
 
 </html>
