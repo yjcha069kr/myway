@@ -106,8 +106,42 @@
 
     <!-- footer -->
     <footer id="footer">
-        <p>©CYJ 2026 MySite</p>
+        <div class="footer-inner">
+            <!-- <p class="footer-desc">개인 프로젝트 포트폴리오 페이지입니다. 핑크톤 감성으로 제작했어요.</p> -->
+
+            <div class="footer-bottom">
+                <p class="footer-copy">© 2026 CYJ. All rights reserved.</p>
+
+                <div class="footer-links">
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                </div>
+
+                <button id="back-to-top"><i class="fa-solid fa-chevron-up"></i>TOP</button>
+            </div>
+        </div>
     </footer>
+
+    <script>
+         /* =============== 탑버튼 ===============  */
+        const backToTopBtn = document.getElementById('back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 
     <script src="/js/calendar.js"></script>
 </body>
