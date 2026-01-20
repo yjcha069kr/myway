@@ -131,7 +131,7 @@ function loadDateData(dateString) {
 function loadChecklist(dateString) {
   checklistEl.innerHTML = '';
 
-  const savedChecklist = JSON.parse(localStorage.getItem(`checklist-${dateString}`)) || [];
+  const savedChecklist = JSON.parse(localStorage.getItem(`checklist-${dateString}`) || '[]');
 
   savedChecklist.forEach((item, idx) => {
     const li = document.createElement('li');
