@@ -34,7 +34,7 @@ body {
   letter-spacing: 0.04em;
 }
 .container { 
-    max-width: 1400px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     padding: 20px 0;
@@ -288,11 +288,13 @@ h1, h2, p {
   flex-direction: column;
   gap: 12px;
 }
+
 .today .memo-header {
+  text-align: center;
   font-size: 14px;
   color: var(--text-sub);
 }
-.memo-header #selected-date {
+.today .memo-header #selected-date {
   font-size: 18px;
   font-weight: bold;
   color: var(--text-main);
@@ -308,6 +310,9 @@ h1, h2, p {
   color: var(--text-main);
   border: 1px solid var(--border-soft);
   font-family: inherit;
+}
+#memo-text::placeholder {
+  color: #9f9f9f;
 }
 #memo-text:focus {
   outline: none;
@@ -326,21 +331,16 @@ h1, h2, p {
 
 
 
-
-
-
 /* footer */
 #footer {
   padding: 40px 20px;
   background: var(--border-soft);
   text-align: center;
 }
-
 .footer-inner {
   max-width: 1024px;
   margin: 0 auto;
 }
-
 .footer-bottom {
   display: flex;
   justify-content: center;
@@ -348,26 +348,20 @@ h1, h2, p {
   gap: 20px;
   flex-wrap: wrap;
 }
-
 .footer-copy {
-  font-size: 14px;
+  font-size: 16px;
   color: #5a4a4a;
 }
-
 .footer-links {
   display: flex;
   gap: 16px;
 }
-
 .footer-links a {
   color: var(--text-main);
   text-decoration: none;
   font-size: 14px;
 }
 
-.footer-links a i {
-  margin-right: 6px;
-}
 
 /* 탑버튼 */
 #back-to-top {
@@ -389,7 +383,6 @@ h1, h2, p {
   flex-direction: column;
   z-index: 999;
   font-family: inherit;
-  letter-spacing: 0.04rem;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
@@ -404,65 +397,112 @@ h1, h2, p {
 
 /* ==================== 모바일 반응형 ==================== */
 @media (max-width: 768px) {
-  .container {
-    padding: 40px;
+
+  body {
+    font-size: 16px;
   }
-  p {
-    font-size: 35px;
+  .container {
+    padding: 20px;
   }
   .nav {
-    font-size: 30px;
+    font-size: 12px;
+    height: auto;
+    padding: 10px;
   }
-  .section-title {
-    font-size: 45px;
-    margin-top: 120px;
+  .nav-menu {
+    gap: 20px;
   }
   .intro-title {
-    font-size: 50px;
+    font-size: 25px;
   }
-  .intro-desc {
-    font-size: 35px;
+  .section-title {
+    font-size: 18px;
   }
   .cards .card-grid {
     grid-template-columns: 1fr;
   }
   .cards .card h3 {
-    font-size: 40px;
+    font-size: 16px;
+  }
+  .cards .card p {
+    font-size: 16px;
   }
   .calendar-layout {
     flex-direction: column;
   }
+
   .today .calendar-container,
   .today .memo-container {
     width: 100%;
   }
+
+  /* calendar */
   .calendar-header span {
-    font-size: 50px;
+    font-size: 20px;
   }
-  .calendar-header button {
-    width: 80px;
-    height: 80px;
-    font-size: 40px;
-  }
+
   .today .weekdays {
-    font-size: 30px;
+    font-size: 16px;
   }
+
   .today .date-cell {
-    font-size: 30px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 14px;
   }
-  .memo-header #selected-date {
-    font-size: 40px;
+  .today-extra {
+    flex-direction: column;
   }
+  .today-extra .card-box {
+    width: 100%;
+  }
+  .mood-buttons {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .mood-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  /* 체크리스트 글씨 */
+  #checklist label {
+    font-size: 16px;
+  }
+
+  /* 메모 textarea 높이 확보 */
   #memo-text {
-    padding: 30px;
-    font-size: 35px;
+    min-height: 160px;
   }
+  /* memo */
+  .memo-header #selected-date {
+    font-size: 16px;
+  }
+
+  #memo-text {
+    font-size: 16px;
+    padding: 15px;
+  }
+
   #save-memo {
-    margin-top: 20px;
-    font-size: 35px;
-    padding: 20px;
+    font-size: 14px;
+    padding: 10px;
   }
-  #footer {
-    font-size: 30px;
+
+  /* footer */
+  .footer-copy {
+    font-size: 14px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  /* back to top */
+  #back-to-top {
+    width: 48px;
+    height: 48px;
+    font-size: 13px;
   }
 }
