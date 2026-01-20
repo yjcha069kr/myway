@@ -13,7 +13,7 @@
     <!-- header -->
     <header id="header">
         <nav class="nav container">
-            <a href="/index.html" class="logo"><i class="fa-solid fa-house"></i>HOME</i></a>
+            <a href="/index.html" class="logo"><i class="fa-solid fa-house"></i>HOME</a>
             <ul class="nav-menu">
                 <li><a href="/about.html"><i class="fa-solid fa-user"></i>About</a></li>
                 <li><a href="/projects.html">Projects</a></li>
@@ -94,7 +94,8 @@
                                 <div class="mood-buttons">
                                     <button class="mood-btn" data-mood="좋음"><i
                                             class="fa-regular fa-face-laugh-beam"></i></button>
-                                    <button class="mood-btn" data-mood="보통"><i class="fa-regular fa-face-meh"></i></button>
+                                    <button class="mood-btn" data-mood="보통"><i
+                                            class="fa-regular fa-face-meh"></i></button>
                                     <button class="mood-btn" data-mood="슬픔"><i
                                             class="fa-regular fa-face-sad-tear"></i></button>
                                     <button class="mood-btn" data-mood="화남"><i
@@ -104,21 +105,24 @@
                             <div class="card-box">
                                 <h3>WEATHER</h3>
                                 <div class="mood-buttons">
-                                    <button class="mood-btn" data-weather="맑음"><i class="fa-regular fa-sun"></i></button>
-                                    <button class="mood-btn" data-weather="흐림"><i class="fa-regular fa-cloud"></i></button>
-                                    <button class="mood-btn" data-weather="비"><i class="fa-solid fa-cloud-showers-heavy"></i></button>
-                                    <button class="mood-btn" data-weather="눈"><i class="fa-regular fa-snowflake"></i></button>
+                                    <button class="mood-btn" data-weather="맑음"><i
+                                            class="fa-regular fa-sun"></i></button>
+                                    <button class="mood-btn" data-weather="흐림"><i
+                                            class="fa-regular fa-cloud"></i></button>
+                                    <button class="mood-btn" data-weather="비"><i
+                                            class="fa-solid fa-cloud-showers-heavy"></i></button>
+                                    <button class="mood-btn" data-weather="눈"><i
+                                            class="fa-regular fa-snowflake"></i></button>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-box">
-                            <h3>TODO</h3>
-                            <ul id="checklist">
-                                <li><input type="checkbox" id="c1"><label for="c1">물 2L 마시기</label></li>
-                                <li><input type="checkbox" id="c2"><label for="c2">산책 30분</label></li>
-                                <li><input type="checkbox" id="c3"><label for="c3">공부 1시간</label></li>
-                            </ul>
+                            <div class="todo-header">
+                                <h3>TODO</h3>
+                                <button id="add-check">항목추가</button>
+                            </div>
+                            <ul id="checklist"></ul>
                         </div>
 
                     </div>
@@ -143,8 +147,6 @@
     <!-- footer -->
     <footer id="footer">
         <div class="footer-inner">
-            <!-- <p class="footer-desc">개인 프로젝트 포트폴리오 페이지입니다. 핑크톤 감성으로 제작했어요.</p> -->
-
             <div class="footer-bottom">
                 <p class="footer-copy">© 2026 CYJ. All rights reserved.</p>
 
