@@ -9,14 +9,12 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ==================== font ==================== */
 @font-face {
     font-family: 'OngleipKonkon';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2') format('woff2');
     font-weight: normal;
     font-display: swap;
 }
-
 :root {
   --bg-main: #fdf1f1;
   --text-main: #3a2f2f;
@@ -144,6 +142,33 @@ h1, h2, p {
   align-items: stretch;
 }
 /* === calendar === */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.calendar-header span {
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+}
+.calendar-header button {
+    background: var(--border-soft);
+    border: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--text-sub);
+    transition: all 0.2s;
+}
+.calendar-header button:hover {
+    background: var(--accent);
+    color: #fff;
+}
 .today .calendar-container {
   width: 70%;
   display: grid;
@@ -251,3 +276,37 @@ h1, h2, p {
   background: var(--border-soft);
 }
 
+
+
+/* ==================== 모바일 반응형 ==================== */
+@media (max-width: 768px) {
+
+  .container {
+    padding: 20px;
+  }
+
+  /* 카드 2열 */
+  .cards .card-grid {
+    grid-template-columns: 1fr;
+  }
+  .calendar-layout {
+    gap: 16px;
+  }
+
+  .today .calendar-container {
+    width: 60%;
+  }
+
+  .today .memo-container {
+    width: 40%;
+  }
+
+  .today .date-cell {
+    padding: 14px;
+    font-size: 14px;
+  }
+
+  .calendar-header span {
+    font-size: 18px;
+  }
+}

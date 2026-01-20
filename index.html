@@ -67,9 +67,21 @@
         </section>
         <section class="today section">
             <h2 class="section-title">TODAY</h2>
+
             <div class="calendar-layout">
+
                 <!-- 달력 -->
-                <div class="calendar-container" id="calendar"></div>
+                <div class="calendar-container">
+
+                    <div class="calendar-header">
+                        <button id="prev-month">‹</button>
+                        <span id="month-title"></span>
+                        <button id="next-month">›</button>
+                    </div>
+
+                    <div id="calendar"></div>
+
+                </div>
 
                 <!-- 메모장 -->
                 <div class="memo-container">
@@ -78,11 +90,12 @@
                     </div>
 
                     <textarea id="memo-text" placeholder="오늘 하루를 기록해보세요."></textarea>
-
                     <button id="save-memo">저장</button>
                 </div>
+
             </div>
         </section>
+
         <section class="now section">
             <h2 class="section-title">NOW</h2>
             <p>
@@ -96,7 +109,6 @@
         <p>©CYJ 2026 MySite</p>
     </footer>
 
-    <script src="/assets/js/common.js"></script>
     <script src="/js/calendar.js"></script>
 </body>
 
