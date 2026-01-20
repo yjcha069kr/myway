@@ -46,6 +46,10 @@ body {
   color: var(--text-sub);
   margin-bottom: 5px;
 }
+.section span {
+  color: #db5f5f;
+  padding: 5px;
+}
 h1, h2, p {
   color: var(--text-main);
 }
@@ -278,35 +282,70 @@ h1, h2, p {
 
 
 
+
+
+
 /* ==================== 모바일 반응형 ==================== */
 @media (max-width: 768px) {
-
   .container {
-    padding: 20px;
+    padding: 40px;
   }
-
-  /* 카드 2열 */
+  p {
+    font-size: 35px;
+  }
+  .nav {
+    font-size: 30px;
+  }
+  .section-title {
+    font-size: 45px;
+    margin-top: 120px;
+  }
+  .intro-title {
+    font-size: 50px;
+  }
+  .intro-desc {
+    font-size: 35px;
+  }
   .cards .card-grid {
     grid-template-columns: 1fr;
   }
+  .cards .card h3 {
+    font-size: 40px;
+  }
   .calendar-layout {
-    gap: 16px;
+    flex-direction: column;
   }
-
-  .today .calendar-container {
-    width: 60%;
-  }
-
+  .today .calendar-container,
   .today .memo-container {
-    width: 40%;
+    width: 100%;
   }
-
-  .today .date-cell {
-    padding: 14px;
-    font-size: 14px;
-  }
-
   .calendar-header span {
-    font-size: 18px;
+    font-size: 50px;
+  }
+  .calendar-header button {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+  }
+  .today .weekdays {
+    font-size: 30px;
+  }
+  .today .date-cell {
+    font-size: 30px;
+  }
+  .memo-header #selected-date {
+    font-size: 40px;
+  }
+  #memo-text {
+    padding: 30px;
+    font-size: 35px;
+  }
+  #save-memo {
+    margin-top: 20px;
+    font-size: 35px;
+    padding: 20px;
+  }
+  #footer {
+    font-size: 30px;
   }
 }
