@@ -72,15 +72,12 @@
 
                 <!-- 달력 -->
                 <div class="calendar-container">
-
                     <div class="calendar-header">
                         <button id="prev-month">‹</button>
                         <span id="month-title"></span>
                         <button id="next-month">›</button>
                     </div>
-
                     <div id="calendar"></div>
-
                 </div>
 
                 <!-- 메모장 -->
@@ -88,10 +85,33 @@
                     <div class="memo-header">
                         <span id="selected-date">날짜를 선택하세요</span>
                     </div>
+                    <!-- 기분 + 체크리스트 카드 박스 -->
+                    <div class="today-extra">
+                        <div class="card-box">
+                            <h3>FEEL</h3>
+                            <div class="mood-buttons">
+                                <button class="mood-btn" data-mood="happy">😊</button>
+                                <button class="mood-btn" data-mood="sad">😢</button>
+                                <button class="mood-btn" data-mood="tired">😴</button>
+                                <button class="mood-btn" data-mood="love">😍</button>
+                            </div>
+                        </div>
+                        <div class="card-box">
+                            <h3>TODO</h3>
+                            <ul id="checklist">
+                                <li><input type="checkbox" id="c1"><label for="c1">물 2L 마시기</label></li>
+                                <li><input type="checkbox" id="c2"><label for="c2">산책 30분</label></li>
+                                <li><input type="checkbox" id="c3"><label for="c3">공부 1시간</label></li>
+                            </ul>
+                        </div>
 
+                    </div>
+                    <!-- 하루기록 -->
                     <textarea id="memo-text" placeholder="오늘 하루를 기록해보세요."></textarea>
                     <button id="save-memo">저장</button>
+
                 </div>
+
 
             </div>
         </section>
@@ -127,7 +147,7 @@
     </footer>
 
     <script>
-         /* =============== 탑버튼 ===============  */
+        /* =============== 탑버튼 ===============  */
         const backToTopBtn = document.getElementById('back-to-top');
 
         window.addEventListener('scroll', () => {

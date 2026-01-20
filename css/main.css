@@ -179,7 +179,7 @@ h1, h2, p {
     color: #fff;
 }
 .today .calendar-container {
-  width: 70%;
+  width: 60%;
   display: grid;
   grid-template-rows: auto 1fr;
   background: #fff;
@@ -228,8 +228,58 @@ h1, h2, p {
   color: #fff;
 }
 /* === memo === */
+.today-extra {
+  display: flex;
+  gap: 16px;
+}
+.card-box {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  padding: 14px;
+}
+.card-box h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--text-main);
+  border-bottom: 1px dashed var(--border-soft);
+  margin-bottom: 10px;
+}
+.mood-buttons {
+  display: flex;
+  gap: 10px;
+}
+.mood-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  cursor: pointer;
+  background: #fff;
+  font-size: 20px;
+}
+.mood-btn.selected {
+  background: var(--accent);
+  color: #fff;
+}
+#checklist {
+  list-style: none;
+  /* padding: 0;
+  margin: 0; */
+}
+#checklist li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+#checklist label {
+  font-size: 16px;
+  color: var(--text-sub);
+}
 .today .memo-container {
-  width: 30%;
+  width: 40%;
   background: #fff;
   border: 1px solid var(--border-soft);
   border-radius: 20px;
@@ -273,6 +323,9 @@ h1, h2, p {
   cursor: pointer;
   font-family: inherit;
 }
+
+
+
 
 
 
