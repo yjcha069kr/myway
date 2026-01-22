@@ -177,27 +177,3 @@ body {
     margin-bottom: 30px; /* 제목과 카드 사이 여백 */
 }
 
-/* 카드들만 가로 배치 */
-.menu-cards {
-    display: flex;
-    justify-content: space-between; /* 카드 사이 간격 */
-    flex-wrap: wrap;                /* 화면 좁으면 자동 줄바꿈 */
-    gap: 20px;
-}
-
-.menu-card {
-    background: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    flex: 1;                        /* 균등하게 공간 나눔 */
-    min-width: 250px;               /* 너무 작아지지 않게 */
-}
-
-.menu-card img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin: 5px;
-    border-radius: 10px;
-}
