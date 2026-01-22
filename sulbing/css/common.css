@@ -1,0 +1,203 @@
+@font-face {
+    font-family: "Pretendard";
+    src: url("../fonts/Pretendard-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Pretendard";
+    src: url("../fonts/Pretendard-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SchoolSafetyRoundedSmile';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-R.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SchoolSafetyRoundedSmile';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimDunggeunmisoTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto;   
+    padding-top: 40px;
+}
+
+body {
+    font-family: "Pretendard", sans-serif;
+    letter-spacing: 1px;
+}
+
+.nav a, .brand h3 {
+    font-family: "SchoolSafetyRoundedSmile", sans-serif;
+}
+
+/* header */
+.header {
+    background: #42120E;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.gnb {
+    display: flex;
+    align-items: center;  
+    justify-content: space-between;
+    height: 80px;   
+}
+.gnb a {
+    color: #FFEFD3;
+}
+.nav {
+    display: flex;
+    gap: 40px;  
+}
+.logo img {
+    height: 40px; 
+}
+
+/* main */
+.main-visual {
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px;
+}
+.visual-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    flex: 0 0 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+}
+.slide-btn {
+    position: absolute;
+    top: 50%;              /* 세로 가운데 */
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.2);
+    border-radius: 50%;
+    color: #42120E;
+    border: none;
+    font-size: 50px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.slide-btn.prev {
+    left: 10px; 
+    transform: translateY(-50%);
+}
+.slide-btn.next {
+    right: 10px;
+    transform: translateY(-50%); 
+}
+.pagination {
+    position: absolute;
+    bottom: 20px;  
+    left: 50%;  
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #FFf;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: #42120E;
+}
+
+
+.menu,
+.brand {
+    text-align: center;
+}
+
+.menu {
+    text-align: center;
+}
+
+.menu h2 {
+    font-size: 32px;
+    margin-bottom: 30px; /* 제목과 카드 사이 여백 */
+}
+
+/* 카드들만 가로 배치 */
+.menu-cards {
+    display: flex;
+    justify-content: space-between; /* 카드 사이 간격 */
+    flex-wrap: wrap;                /* 화면 좁으면 자동 줄바꿈 */
+    gap: 20px;
+}
+
+.menu-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex: 1;                        /* 균등하게 공간 나눔 */
+    min-width: 250px;               /* 너무 작아지지 않게 */
+}
+
+.menu-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin: 5px;
+    border-radius: 10px;
+}
