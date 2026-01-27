@@ -177,3 +177,40 @@ body {
     margin-bottom: 30px; /* 제목과 카드 사이 여백 */
 }
 
+/* 카드UI */
+.menu-cards {
+  display: flex;
+  gap: 24px;
+}
+
+.menu-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.menu-card h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.menu-card {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* 제목은 2칸 차지 */
+.menu-card h3 {
+  grid-column: span 2;
+}
+
+.menu-card img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}

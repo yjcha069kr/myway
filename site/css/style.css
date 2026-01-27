@@ -1,0 +1,230 @@
+@font-face {
+    font-family: '11StreetGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-4@1.1/11StreetGothic-KorLight.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: '11StreetGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-4@1.1/11StreetGothic-Kor.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: '11StreetGothic';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2601-4@1.1/11StreetGothic-KorBold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* ===============================
+   기본 설정 & 변수
+================================ */
+:root {
+  --bg-main: #FFFEFA;
+  --bg-soft: #FFF3C4;
+  --point-main: #9CAF88;
+  --card-bg: #FFFFFF;
+  --text-main: #3E3E3E;
+  --text-sub: #777;
+  --line-soft: #ECE6DA;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: '11StreetGothic', sans-serif;
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 880px; 
+  margin: 0 auto;  
+}
+section {
+  padding: 40px 20px;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+/* ===============================
+   헤더
+================================ */
+.header {
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+
+.header h1 {
+  font-size: 36px;
+  margin-bottom: 12px;
+  color: var(--text-main);
+}
+.header span {
+  font-size: 10px;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+/* .header p {
+  font-size: 16px;
+  color: var(--text-sub);
+} */
+
+/* ===============================
+   연도 버튼 영역
+================================ */
+.years {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  padding: 0 20px 70px;
+  justify-items: center;
+}
+
+.year {
+  background: var(--bg-soft);
+  border: none;
+  padding: 12px 22px;
+  width: 100%;
+  max-width: 140px;
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.year:hover {
+  background: var(--point-main);
+  color: #fff;
+  border: none;
+}
+
+/* ===============================
+   소개 문구
+================================ */
+.intro {
+  text-align: center;
+  padding-bottom: 80px;
+}
+
+.intro p {
+  font-size: 16px;
+  color: var(--text-sub);
+}
+
+/* ===============================
+   미리보기 기억 카드
+================================ */
+.memories {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.memory-card {
+  background: var(--card-bg);
+  border-radius: 18px;
+  padding: 24px;
+  border: 1px solid var(--line-soft);
+}
+
+.memory-card .date {
+  font-size: 13px;
+  color: var(--point-main);
+  font-weight: 700;
+}
+
+.memory-card .text {
+  margin-top: 12px;
+  font-size: 15px;
+  color: var(--text-main);
+}
+
+/* ===============================
+   연도 페이지 하단 링크
+================================ */
+a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/* ===============================
+   연도별 페이지 (year.html)
+================================ */
+.class-info {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.class-info h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.class-info p {
+  font-size: 15px;
+  color: var(--text-sub);
+}
+/* ===============================
+   사진 카드
+================================ */
+.photos {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 28px;
+}
+
+.photo-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 18px;
+  border: 1px solid var(--line-soft);
+}
+
+.photo-card img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.photo-card p {
+  font-size: 14px;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+
+/* ===============================
+   반응형 (모바일)
+================================ */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .memory-card {
+    padding: 22px;
+  }
+
+  .year {
+    font-size: 13px;
+    padding: 10px 18px;
+  }
+}
