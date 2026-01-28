@@ -12,7 +12,7 @@
 
 <body>
     <!-- header -->
-    <header class="header">
+    <header class="header" id="header">
         <div class="container">
             <nav class="gnb">
                 <h1 class="logo">
@@ -31,40 +31,149 @@
 
     <!-- main -->
     <main class="main">
-        <div class="container">
-            <section class="main-visual">
-                <div class="visual-track">
-                    <div class="slide">
-                        <img src="./assets/main_banner_uoycbgd.png" alt="">
-                    </div>
-                    <div class="slide">
-                        <img src="./assets/main_banner_htgyzku.png" alt="">
-                    </div>
-                    <div class="slide">
-                        <img src="./assets/main_banner_yufveze.png" alt="">
-                    </div>
-                    <div class="slide">
-                        <img src="./assets/main_banner_weybgjk.png" alt="">
-                    </div>
+        <section class="main-visual" id="mainVisual">
+            <div class="visual-track">
+                <div class="slide">
+                    <img src="./assets/main_banner_uoycbgd.png" alt="">
                 </div>
-
-                <button class="slide-btn prev">‹</button>
-                <button class="slide-btn next">›</button>
-
-                <div class="pagination">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                <div class="slide">
+                    <img src="./assets/main_banner_htgyzku.png" alt="">
                 </div>
-            </section>
-        </div>
-        <div class="container">
+                <div class="slide">
+                    <img src="./assets/main_banner_yufveze.png" alt="">
+                </div>
+                <div class="slide">
+                    <img src="./assets/main_banner_weybgjk.png" alt="">
+                </div>
+            </div>
+
+            <button class="slide-btn prev">‹</button>
+            <button class="slide-btn next">›</button>
+
+        </section>
+        <div class="container" id="afterMain">
   <section class="menu">
-    <h2>메뉴소개</h2>
-    <div class="menu-cards"></div>
+
+    <!-- ================= 새로 나온 메뉴 ================= -->
+    <div class="new-menu">
+      <h2>새로 나온 메뉴</h2>
+
+      <div class="menu-carousel">
+        <button class="menu-btn prev">‹</button>
+
+        <div class="menu-cards carousel">
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_cygnhdi.png" alt="아포..가또설빙">
+            <p class="menu-name">아포..가또설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_nkkruse.png" alt="자니..블루설빙">
+            <p class="menu-name">자니..블루설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_uywrlsv.png" alt="생딸기초코케이크설빙">
+            <p class="menu-name">생딸기초코케이크설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_vrghjwa.png" alt="생딸기찐한말차볼설빙">
+            <p class="menu-name">생딸기찐한말차볼설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_lnefddq.png" alt="흑절미설빙">
+            <p class="menu-name">흑절미설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_vphjysj.png" alt="팥흑절미설빙">
+            <p class="menu-name">팥흑절미설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_lrihcwb.png" alt="생딸기두바이찹쌀떡">
+            <p class="menu-name">생딸기두바이찹쌀떡</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_iyyraif.png" alt="두바이찹쌀떡">
+            <p class="menu-name">두바이찹쌀떡</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_qdgfwkf.png" alt="두바이크로플">
+            <p class="menu-name">두바이크로플</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_xcrzdzs.png" alt="말차라떼">
+            <p class="menu-name">말차라떼</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_frdwqtb.png" alt="생딸기주스">
+            <p class="menu-name">생딸기주스</p>
+          </div>
+        </div>
+
+        <button class="menu-btn next">›</button>
+      </div>
+
+      <!-- pagination -->
+      <div class="menu-pagination">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
+    <!-- ================= 시그니쳐 메뉴 ================= -->
+    <div class="signature-menu">
+      <h2>시그니쳐 메뉴</h2>
+
+      <div class="menu-carousel">
+        <button class="menu-btn prev">‹</button>
+
+        <div class="menu-cards carousel">
+          <div class="menu-card">
+            <img src="./assets/menu/regular_01.png" alt="인절미설빙">
+            <p class="menu-name">인절미설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/regular_02.png" alt="팥인절미설빙">
+            <p class="menu-name">팥인절미설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/regular_03.png" alt="인절미아이스크림설빙">
+            <p class="menu-name">인절미아이스크림설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_jzobvkm.png" alt="애플망고치즈설빙">
+            <p class="menu-name">애플망고치즈설빙</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/product_small_yvnntea.png" alt="흑절미토스트">
+            <p class="menu-name">흑절미토스트</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/side_04.png" alt="인절미토스트">
+            <p class="menu-name">인절미토스트</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/coffee_04.png" alt="인절미샷라떼">
+            <p class="menu-name">인절미샷라떼</p>
+          </div>
+          <div class="menu-card">
+            <img src="./assets/menu/beverage_02.png" alt="인절미라떼">
+            <p class="menu-name">인절미라떼</p>
+          </div>
+        </div>
+
+        <button class="menu-btn next">›</button>
+      </div>
+
+      <!-- pagination -->
+      <div class="menu-pagination">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+
   </section>
 </div>
+
         <div class="container">
             <section class="brand">
                 <!-- <h2>행복이 쌓이는 설빙</h2> -->
@@ -101,7 +210,6 @@
         </div>
     </footer>
 
-    <script src="./js/data.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

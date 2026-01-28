@@ -1,19 +1,15 @@
+/* ================= main-visual ================= */
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ================= main-visual ================= */
   const track = document.querySelector('.visual-track');
   const slides = document.querySelectorAll('.slide');
   const prev = document.querySelector('.prev');
   const next = document.querySelector('.next');
-  const dots = document.querySelectorAll('.dot');
 
   let current = 0;
 
   function updateSlide() {
     track.style.transform = `translateX(-${current * 100}%)`;
-
-    dots.forEach(dot => dot.classList.remove('active'));
-    if (dots[current]) dots[current].classList.add('active');
   }
 
   next?.addEventListener('click', () => {
@@ -26,33 +22,107 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSlide();
   });
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      current = i;
-      updateSlide();
+});
+
+
+// 풀페이지스크롤
+const mainVisual = document.getElementById("mainVisual");
+const afterMain = document.getElementById("afterMain");
+const header = document.getElementById("header");
+
+let isAnimating = false;
+
+window.addEventListener(
+  "wheel",
+  (e) => {
+    if (isAnimating) return;
+
+    const headerHeight = header.offsetHeight;
+    const mainRect = mainVisual.getBoundingClientRect();
+
+    // 메인 비주얼 영역 안에 있을 때만
+    const isInMain =
+      mainRect.top <= headerHeight &&
+      mainRect.bottom > headerHeight;
+
+    // 메인 비주얼이 아니면 관여 안 함
+    if (!isInMain) return;
+
+    // 🔼 위로 스크롤 → 그냥 놔둠
+    if (e.deltaY <= 0) return;
+
+    // 🔽 아래로 스크롤 → 스냅
+    e.preventDefault();
+    isAnimating = true;
+
+    const targetY =
+      afterMain.getBoundingClientRect().top +
+      window.pageYOffset -
+      headerHeight;
+
+    window.scrollTo({
+      top: targetY,
+      behavior: "smooth",
     });
-  });
 
-  /* ================= 메뉴 UI ================= */
-  const menuCards = document.querySelector(".menu-cards");
-  if (!menuCards) return;
+    setTimeout(() => {
+      isAnimating = false;
+    }, 800);
+  },
+  { passive: false }
+);
 
-  menuDatas.forEach(menu => {
-    const card = document.createElement("div");
-    card.className = "menu-card";
 
-    const title = document.createElement("h3");
-    title.textContent = menu.category;
-    card.appendChild(title);
 
-    menu.items.forEach(item => {
-      const img = document.createElement("img");
-      img.src = item.img;
-      img.alt = item.alt;
-      card.appendChild(img);
+
+// 메뉴 케로셀
+document.addEventListener("DOMContentLoaded", () => {
+
+  document.querySelectorAll(".menu-carousel").forEach(carousel => {
+
+    const track = carousel.querySelector(".menu-cards");
+    const prevBtn = carousel.querySelector(".menu-btn.prev");
+    const nextBtn = carousel.querySelector(".menu-btn.next");
+
+    // pagination은 menu-carousel 바깥 (new-menu / signature-menu)
+    const section = carousel.closest(".new-menu, .signature-menu");
+    const dots = section.querySelectorAll(".menu-pagination .dot");
+
+    const card = track.querySelector(".menu-card");
+    const gap = 20; // CSS gap
+    const moveX = card.offsetWidth + gap;
+
+    let index = 0;
+
+    function updateDots() {
+      dots.forEach(d => d.classList.remove("active"));
+      if (dots[index]) dots[index].classList.add("active");
+    }
+
+    nextBtn.addEventListener("click", () => {
+      track.scrollBy({ left: moveX, behavior: "smooth" });
+      index = Math.min(index + 1, dots.length - 1);
+      updateDots();
     });
 
-    menuCards.appendChild(card);
+    prevBtn.addEventListener("click", () => {
+      track.scrollBy({ left: -moveX, behavior: "smooth" });
+      index = Math.max(index - 1, 0);
+      updateDots();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        track.scrollTo({
+          left: moveX * i,
+          behavior: "smooth"
+        });
+        index = i;
+        updateDots();
+      });
+    });
+
+    updateDots();
   });
 
 });
