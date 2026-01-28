@@ -1,0 +1,193 @@
+@font-face {
+    font-family: 'Juache';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+body{
+    margin:0;
+    font-family:'NanumSquareRound', sans-serif;
+    background:#dbe0ee;
+    color:#333;
+}
+header{
+    background:#ffffff;
+    border-bottom:1px solid #eee;
+}
+.container{
+    max-width:1000px;
+    margin:0 auto;
+    padding:40px 20px;
+}
+h1,h2{
+    font-family:'Juache', sans-serif;
+}
+h1{
+    font-size:40px; 
+    margin-bottom:10px;
+}
+h2{
+    font-size:26px; 
+    margin-bottom:20px;
+    color: #112d83;
+}
+.intro{
+    text-align:center;
+    padding:60px 20px;
+}
+.intro p{
+    font-size:18px; 
+    color:#555;
+}
+.section{
+    margin-top:80px;
+}
+.skills{
+    display:flex; 
+    gap:12px; 
+    flex-wrap:wrap;
+}
+.skill{
+    background: #fff;
+    padding:10px 16px;
+    border-radius:999px;
+    font-weight:700;
+}
+.skill-bar {
+  margin-bottom: 20px;
+}
+
+.skill-bar span {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-weight: 700;
+}
+
+.bar {
+  width: 100%;
+  height: 20px;
+  background: #f1f1f1;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+/* 숙련도 (느낌용) */
+.fill.html {
+  width: 80%;
+  background: #ffb3c7;
+}
+
+.fill.css {
+  width: 75%;
+  background: #b9f3e4;
+}
+
+.fill.js {
+  width: 40%;
+  background: #fff1a8;
+}
+.fill {
+  height: 100%;
+  border-radius: 999px;
+  width: 0; 
+  animation: loadBar 1.8s ease forwards;
+}
+
+/* 각 스킬별 숙련도 */
+.fill.html {
+  background: #112d83;
+  animation-delay: 0.2s;
+  --target-width: 80%;
+}
+
+.fill.css {
+  background: #112d83;
+  animation-delay: 0.4s;
+  --target-width: 75%;
+}
+
+.fill.js {
+  background: #112d83;
+  animation-delay: 0.6s;
+  --target-width: 40%;
+}
+
+/* 애니메이션 정의 */
+@keyframes loadBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--target-width);
+  }
+}
+
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+.card{
+    background:#fff;
+    border-radius:20px;
+    padding:16px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.05);
+    border:1px solid #ddd;
+    transition:.2s transform, .2s box-shadow;
+}
+.card img {
+    width: 100%;
+    height: 100px;
+}
+.card h3{
+    margin-top:0;
+}
+#footer {
+  padding: 40px 20px;
+  background: var(--border-soft);
+  text-align: center;
+}
+.footer-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.footer-copy {
+  font-size: 16px;
+  color: #5a4a4a;
+}
+.footer-links {
+  display: flex;
+  gap: 16px;
+}
+.footer-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* 모바일반응형 */
+@media (max-width:900px){
+    .projects{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:500px){
+    .projects{grid-template-columns:1fr;}
+}
