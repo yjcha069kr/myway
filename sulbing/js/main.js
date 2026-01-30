@@ -1,76 +1,23 @@
 /* ================= main-visual ================= */
-document.addEventListener("DOMContentLoaded", () => {
+const slides = document.querySelector(".slides");
+const dots = document.querySelectorAll(".main-visual .dot");
+let index = 0;
 
-  const track = document.querySelector('.visual-track');
-  const slides = document.querySelectorAll('.slide');
-  const prev = document.querySelector('.prev');
-  const next = document.querySelector('.next');
+function move(i) {
+  index = i;
+  slides.style.transform = `translateX(-${i * 100}%)`;
 
-  let current = 0;
+  dots.forEach(d => d.classList.remove("active"));
+  dots[i].classList.add("active");
+}
 
-  function updateSlide() {
-    track.style.transform = `translateX(-${current * 100}%)`;
-  }
+setInterval(() => {
+  move((index + 1) % dots.length);
+}, 4000);
 
-  next?.addEventListener('click', () => {
-    current = (current + 1) % slides.length;
-    updateSlide();
-  });
-
-  prev?.addEventListener('click', () => {
-    current = (current - 1 + slides.length) % slides.length;
-    updateSlide();
-  });
-
+dots.forEach((dot, i) => {
+  dot.addEventListener("click", () => move(i));
 });
-
-
-// 풀페이지스크롤
-const mainVisual = document.getElementById("mainVisual");
-const afterMain = document.getElementById("afterMain");
-const header = document.getElementById("header");
-
-let isAnimating = false;
-
-window.addEventListener(
-  "wheel",
-  (e) => {
-    if (isAnimating) return;
-
-    const headerHeight = header.offsetHeight;
-    const mainRect = mainVisual.getBoundingClientRect();
-
-    // 메인 비주얼 영역 안에 있을 때만
-    const isInMain =
-      mainRect.top <= headerHeight &&
-      mainRect.bottom > headerHeight;
-
-    // 메인 비주얼이 아니면 관여 안 함
-    if (!isInMain) return;
-
-    // 🔼 위로 스크롤 → 그냥 놔둠
-    if (e.deltaY <= 0) return;
-
-    // 🔽 아래로 스크롤 → 스냅
-    e.preventDefault();
-    isAnimating = true;
-
-    const targetY =
-      afterMain.getBoundingClientRect().top +
-      window.pageYOffset -
-      headerHeight;
-
-    window.scrollTo({
-      top: targetY,
-      behavior: "smooth",
-    });
-
-    setTimeout(() => {
-      isAnimating = false;
-    }, 800);
-  },
-  { passive: false }
-);
 
 
 
